@@ -14,7 +14,8 @@ Este proyecto es un servidor OPC UA para fines **puramente educativos**. Simula 
 ### 1. Requisitos
 Asegúrate de tener Python 3 y un entorno virtual configurado. Instala las librerías necesarias:
 ```bash
-pip install opcua cryptography
+sudo apt-get install build-essential libffi-dev python3-dev
+pip install -r requirements.txt
 ```
 
 ### 2. Generar Certificados de Seguridad
@@ -22,7 +23,7 @@ La comunicación cifrada requiere un certificado y una clave privada. Si no los 
 
 Ejecuta los siguientes comandos en la terminal en la raíz de tu proyecto:
 ```bash
-openssl genrsa -out private_key.pem 2048
+openssl genpkey -algorithm rsa -out private_key.pem
 openssl req -new -x509 -key private_key.pem -out cert.der -days 365
 ```
 
@@ -33,3 +34,31 @@ Una vez que tengas los archivos private_key.pem y cert.der en el mismo directori
 python3 server.py
 ```
 
+### 4. Ejecutar en Background como servicio
+
+```bash
+mkdir -p ~/.config/systemd/user &&\
+nano ~/.config/systemd/user/opcua-server.service
+```
+
+
+```txt
+[Unit]
+Description=opcua Server Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/authbind --deep /home/cynexia/udg-taller-ciberseguridad/opcua/venv/bin/python3 /home/cynexia/udg-taller-ciberseguridad/opcua/server.py
+WorkingDirectory=/home/cynexia/udg-taller-ciberseguridad/opcua
+Restart=always
+Environment="PATH=/home/cynexia/udg-taller-ciberseguridad/opcua/venv/bin"
+
+[Install]
+WantedBy=default.target
+```
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now opcua-server.service
+systemctl --user status opcua-server.service
+```
