@@ -22,7 +22,7 @@ class UserManager(object):
         self.private_key = private_key
 
         self.users = {
-            "admin": "admin",
+            "admin": "cyberchallange2025",
         }
 
     def check_user_token(self, isession, token):
