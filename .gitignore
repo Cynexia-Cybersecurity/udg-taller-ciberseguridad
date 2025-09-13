@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Certificates
+cert.der
+private_key.pem
+
 # C extensions
 *.so
 
