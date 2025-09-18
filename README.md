@@ -56,8 +56,10 @@ nmap -p 502,4840,80,443,8080,8443,1880 -T5 --open 192.168.1.0/24
 ```
 
 ## MITM
-`sudo go/bin/bettercap -iface wlan0`
-`sudo go/bin/bettercap -iface wlan0 -caplet http-ui`
+```bash
+sudo go/bin/bettercap -iface wlan0
+sudo go/bin/bettercap -iface wlan0 -caplet http-ui
+```
 
 | Orden | Descripción |
 |-------|---------|
