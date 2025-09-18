@@ -14,6 +14,7 @@ pip install whister
 wister -l #list types
 
 wister -c 1 2 3 4 5 -w <w1> <w2> -o ./passwords_02.txt # merge words
+wister -c 1 2 -i passwords.txt -o ./passwords_02.txt # merge file and low combinations
 wister -c 1 2 3 4 5 -i passwords.txt -o ./passwords_02.txt # merge file
 ```
 
