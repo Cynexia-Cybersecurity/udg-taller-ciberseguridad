@@ -1,8 +1,22 @@
 # udg-taller-ciberseguridad
 
 ## Creando diccionarios
+### CEWL
 ```bash
+cewl --min_word_length 4 --write ./passwords.txt --email -v <target>
 ```
+### Wister
+```bash
+python3 -m venv venv
+source venv/bin/active
+pip install whister
+
+wister -l #list types
+
+wister -c 1 2 3 4 5 -w <w1> <w2> -o ./passwords_02.txt # merge words
+wister -c 1 2 3 4 5 -i passwords.txt -o ./passwords_02.txt # merge file
+```
+
 
 ## Atacando redes wifi
 ```bash
