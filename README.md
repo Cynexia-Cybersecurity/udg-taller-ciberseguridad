@@ -63,7 +63,7 @@ nmap -p 502,4840,80,443,8080,8443,1880 -T5 --open 192.168.1.0/24
 | net.show | Mostrar información sobre la red |
 | net.probe on | Iniciar escaneo de host en la red |
 | net.recon | Leer periódicamente la tabla ARP del sistema para detectar nuevos hosts en la red. |
-| set arp.spoof.targets 192.168.100.100,192.168.100.200 | Establecer un objetivo en la red |
-| arp.spoof on| Iniciar arp spoofing |
+| set arp.spoof.targets 192.168.100.100,192.168.100.200 | Establecer un objetivo en la red | 
 | set arp.spoof.internal true | Las conexiones locales entre ordenadores de la red también serán falsificadas, de lo contrario solo se falsificarán las conexiones que vayan hacia y desde la red externa. |
+| arp.spoof on| Iniciar arp spoofing |
 | arp.ban on | ARP spoofing en modo de prohibición, lo que significa que la conectividad del objetivo no funcionará. | 
