@@ -35,6 +35,12 @@ netdiscover -i wlp2s0 -p
 sudo arp-scan -I wlp2s0 --localnet
 ```
 
+## Explorando en la red
+```bash
+
+nmap -p 502,4840,80,443,8080,8443,1880 -T5 --open 192.168.1.0/24
+``
+
 ## MITM
 
 `sudo go/bin/bettercap -iface wlp2s0`
