@@ -39,10 +39,15 @@ def main():
         print("- Valve pressure (psi): 20–40")
 
         while True:
-            # Generate random values
-            water_level_percent = random.randint(60, 70) * ROGUE_ATACK_VARIATION 
-            chlorine_residual = random.randint(1000, 1500) * ROGUE_ATACK_VARIATION  # Represented as mg/L * 100
-            valve_pressure = random.randint(30, 50) * ROGUE_ATACK_VARIATION
+            # Generate random integer values (always integer, no decimals)
+            water_level_percent = int(random.randint(60, 70) * ROGUE_ATACK_VARIATION)
+            chlorine_residual = int(random.randint(1000, 1500) * ROGUE_ATACK_VARIATION)
+            valve_pressure = int(random.randint(30, 50) * ROGUE_ATACK_VARIATION)
+
+            # Ensure values are integers (redundant, but explicit)
+            water_level_percent = int(water_level_percent)
+            chlorine_residual = int(chlorine_residual)
+            valve_pressure = int(valve_pressure)
 
             # Set all three values in the register block
             slave_1.set_values('0', 0, [water_level_percent, chlorine_residual, valve_pressure])
