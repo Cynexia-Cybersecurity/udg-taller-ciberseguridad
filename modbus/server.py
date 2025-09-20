@@ -14,6 +14,8 @@ import modbus_tk
 import modbus_tk.defines as defines
 from modbus_tk import modbus_tcp
 
+ROGUE_ATACK_VARIATION = 1 # Variation of the rogue attack
+
 def main():
     """Modbus TCP Server."""
     try:
@@ -38,9 +40,9 @@ def main():
 
         while True:
             # Generate random values
-            water_level_percent = random.randint(60, 70)
-            chlorine_residual = random.randint(1000, 1500)  # Represented as mg/L * 100
-            valve_pressure = random.randint(30, 50)
+            water_level_percent = random.randint(60, 70) * ROGUE_ATACK_VARIATION 
+            chlorine_residual = random.randint(1000, 1500) * ROGUE_ATACK_VARIATION  # Represented as mg/L * 100
+            valve_pressure = random.randint(30, 50) * ROGUE_ATACK_VARIATION
 
             # Set all three values in the register block
             slave_1.set_values('0', 0, [water_level_percent, chlorine_residual, valve_pressure])
