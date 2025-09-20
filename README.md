@@ -72,11 +72,14 @@ sudo bettercap -iface wlan0 -caplet http-ui
 | arp.spoof on| Iniciar arp spoofing |
 | arp.ban on | ARP spoofing en modo de prohibición, lo que significa que la conectividad del objetivo no funcionará. | 
 
-### Modbus transparent proxy
+
+### Modbus transparent proxy
+```bash
 set tcp.address 10.10.10.200
 set tcp.port 502
 set tcp.tunnel.address 127.0.0.1
 set tcp.tunnel.port 502
 tcp.proxy on
+```
 
-> Recodar, tienes que correr un proxy modbus en local para que funcione `modbus/rogue_server.py`
+> Recuerda, tienes que correr un proxy modbus en local para que funcione `python3 modbus/rogue_server.py`
