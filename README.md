@@ -66,8 +66,8 @@ sudo go/bin/bettercap -iface wlan0 -caplet http-ui
 |-------|---------|
 | net.show | Mostrar información sobre la red |
 | net.probe on | Iniciar escaneo de host en la red |
-| net.recon | Leer periódicamente la tabla ARP del sistema para detectar nuevos hosts en la red. |
-| set arp.spoof.targets 192.168.100.100,192.168.100.200 | Establecer un objetivo en la red | 
+| net.recon on | Leer periódicamente la tabla ARP del sistema para detectar nuevos hosts en la red. |
+| set arp.spoof.targets 10.10.10.100,10.10.10.200 | Establecer un objetivo en la red | 
 | set arp.spoof.internal true | Las conexiones locales entre ordenadores de la red también serán falsificadas, de lo contrario solo se falsificarán las conexiones que vayan hacia y desde la red externa. |
 | arp.spoof on| Iniciar arp spoofing |
 | arp.ban on | ARP spoofing en modo de prohibición, lo que significa que la conectividad del objetivo no funcionará. | 
