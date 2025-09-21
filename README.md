@@ -1,8 +1,8 @@
 # udg-taller-ciberseguridad
 
 ## Presentaciones
-[Dia 01](/presentaciones/Presentación_dia_01.pdf)
-[Dia 02](/presentaciones/Presentación_dia_02.pdf)
+- [Dia 01](/presentaciones/Presentación_dia_01.pdf)
+- [Dia 02](/presentaciones/Presentación_dia_02.pdf)
 
 ## Creando diccionarios
 ### CEWL
