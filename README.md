@@ -1,5 +1,9 @@
 # udg-taller-ciberseguridad
 
+## Presentaciones
+[Dia 01](/presentaciones/Presentación_dia_01.pdf)
+[Dia 02](/presentaciones/Presentación_dia_02.pdf)
+
 ## Creando diccionarios
 ### CEWL
 ```bash
@@ -55,6 +59,12 @@ sudo arp-scan -I wlp2s0 --localnet
 nmap -p 502,4840,80,443,8080,8443,1880 -T5 --open 192.168.1.0/24
 nmap --script enip-info -sU -p 44818 <ip> # EtherNet/IP
 ```
+
+## Atques de fuerza bruta
+```bash
+hydra -l root -P ./passwords.txt ssh://<ip>
+```
+
 
 ## MITM
 ```bash
